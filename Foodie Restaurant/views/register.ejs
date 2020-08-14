@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+            margin: 0;
+        }
+        .main {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 600px;
+            margin-left: 400px;
+        }
+
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.topnav h1 {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 10px 13px;
+          text-decoration: none;
+          font-size: 23px;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          width: 100%;
+          background-color: white;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          margin-top: 0px;
+        }
+
+        .topnav a {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 25px 16px;
+          text-decoration: none;
+          font-size: 19px;
+        }
+
+        .topnav-right {
+          float: right;
+        }
+
+</style>
+</head>
+<body>
+
+  <div class="topnav">
+    <h1 style="color:rgb(177, 90, 228)">Foodies Restaurant</h1>   
+    <div class="topnav-right">
+      <a href="/home"><b>Customer</b></a>
+      <a href="/admin"><b>Admin</b></a>
+    </div>
+  </div>
+  <div class="main">
+
+<h2 style="color:rgb(235, 186, 53)">Customer Registration</h2>
+
+<form action="/register" method="post">
+  
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+
+    <label for="email"><b>Email ID</b></label>
+    <input type="email" placeholder="example@ex.com" name="email" required>
+
+    <label for="phno"><b>Phone Number</b></label>
+    <input type="text" placeholder="Enter Phone Number" name="phno" required maxlength="10" minlength="10">
+    
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" minlength="6" required>
+    <% if(!invalid){%>
+    <div>
+        <p class="error" style="color: red;">Email ID  already exists</p>
+    </div>
+    <%}%>
+    <button type="submit">Register</button>
+
+    <a href="/home">Back to Login</a>
+</div>
+
+  
+</form>
+</div>
+
+</body>
+</html>

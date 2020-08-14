@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+          margin: 0;
+        }
+        .topnav {
+          overflow: hidden;
+          width: 100%;
+          background-color: white;
+          box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+          margin-top: 0px;
+        }
+
+        .topnav h1 {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 10px 13px;
+          text-decoration: none;
+          font-size: 23px;
+        }
+
+        .topnav a {
+          float: left;
+          color: black;
+          text-align: center;
+          padding: 25px 16px;
+          text-decoration: none;
+          font-size: 19px;
+        }
+
+        .topnav-right {
+          float: right;
+        }
+
+        input{
+            width: 100%; 
+            box-sizing: border-box;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing: border-box;
+            padding: 15px;
+            margin: 3px 0 3px 0;
+            display: inline-block;
+            border: none;
+            background: white;
+            border-radius:5px;
+        }
+        
+        .editbtn {
+          background-color: rgb(248, 248, 89);
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          opacity: 0.9;
+          border-radius:7px;
+          font-weight:bold;
+        }
+
+        .cancelbtn {
+          background-color: red;
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          opacity: 0.9;
+          border-radius:7px;
+          font-weight:bold;
+        }
+
+        #read {
+          margin: 8px;
+          margin-top: 120px;
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          
+        }
+
+        .create_btn{
+          float: right;
+          width:250px;
+          margin-top: 30px;
+          margin-right: 35px;
+        }
+
+        .btn_create{
+          background-color: rgb(80, 103, 235);
+          color: white;
+          padding: 16px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          opacity: 0.9;
+          border-radius:7px;
+          font-weight:bold;
+          width:200px;
+        }
+        
+        #read td, #read th {
+          border: 1px solid #ddd;
+          padding: 5px;
+        }
+        
+        #read tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #read tr:hover {background-color: #ddd;}
+        
+        #read th {
+          
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #4CAF50;
+          color: white;
+        }
+        
+        </style>
+        
+</head>
+<body>
+
+  <div class="topnav">
+    <h1 style="color:rgb(177, 90, 228)"> Foodies Restaurant</h1>
+    
+    <div class="topnav-right">
+      <a href="/home"><b>Logout</b></a>
+    </div>
+  </div>
+<div class="create_btn">
+  <form action="/create">
+    <button type="submit" class="btn_create">Book New Reservation</button>
+  </form>
+</div>
+  <div class="container">
+    
+    <table id="read" class="read">
+    
+            <tr>
+                <th>User Id</th>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>No. Of Tables</th>
+                <th>Purpose</th>
+                <th>Mealtype</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <% for(var i=0;i<data.length;i++) { %>
+              <form method="post" action='/edit'>
+                <tr>
+                <td><input id="userid" name="userid" type="text" readonly value="<%=data[i].userid%>"></td>
+                <td><input id="orderid" name="orderid" type="text" readonly value="<%=data[i].orderid%>"></td>
+                <td><input id="name" name="name" type="text" readonly value="<%=data[i].name%>"></td>
+                <td><input id="tableno" name="tableno" type="text" readonly value="<%=data[i].tableno%>"></td>
+                <td><input id="meal" name="meal" type="text" readonly value="<%=data[i].meal%>"></td>
+                <td><input id="purpose" name="purpose" type="text" readonly value="<%=data[i].purpose%>"></td>
+                <td><input id="date" name="date" type="text" readonly value="<%=data[i].date%>"></td>
+                <td><input id="time" name="time" type="text" readonly value="<%=data[i].time%>"></td>
+                <td><input id="status" name="status" type="text" readonly value="<%=data[i].status%>"></td>
+                <td><button type="submit" class="editbtn">Edit</button></td>
+                <td><button type="submit" class="cancelbtn" method="post" formaction="/delete">Delete</button></td>
+                </tr>
+              </form>
+            <% } %>
+    </table>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Table</title>
+</head>
+<style>
+    body {
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    
+    .topnav {
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.topnav h2 {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 10px 13px;
+  text-decoration: none;
+  font-size: 23px;
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 25px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.topnav-right {
+  float: right;
+}
+
+    h1{
+    color: violet;
+    }
+    
+    
+    /* Add padding to containers */
+    .container {
+      margin-top: 25px;
+      padding-right: 300px;
+      padding-left: 300px;
+      padding-top: 20px;
+      background-color: white;
+    }
+    
+    /* Full-width input fields */
+    input[type=text], input[type=date], input[type=time], input[type=number],select{
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 10px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius:5px;
+    }
+    
+    input[type=text]:focus, input[type=time]:focus, input[type=date]:focus, input[type=number]:focus, select:focus,p:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+    
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+    
+    /* Set a style for the submit button */
+    .registerbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+      border-radius:7px;
+      font-weight:bold;
+    }
+    .p_tag{
+        font-weight: normal;
+    }
+    
+    .registerbtn:hover {
+      opacity: 1;
+    }
+    
+    .mandatory{
+    color:red;
+    }
+    
+    label{
+      color:gray;
+    }
+
+    </style>
+    
+    </head>
+    
+    <body>
+      <div class="topnav">
+        <h2 style="color:rgb(177, 90, 228)"> Foodies Restaurant</h2>
+        
+        <div class="topnav-right">
+          <a href="/readuser"><b>Back</b></a>
+          <a href="/home"><b>Logout</b></a>
+        </div>
+      </div>
+    <form method="post" action="/edit_data">  <div class="container">
+       <h1 style="color: rgb(235, 186, 53);">Edit your Booking</h1>
+       <p class="p_tag"><span class="mandatory"> *</span><i> Date must be today or greater than today. If not, Booking is not reserved </i></p>
+       <hr>
+    
+       <label for="name"><b>Name</b></label>
+       <input type="text" placeholder="Enter Your First Name" id="name" name="name" maxlength=25 minlength=2 value="<%=data.name%>" required>
+    
+       <label for="orderid"><b>Order ID</b></label>
+       <input type="text" id="orderid" name="orderid" value="<%=data.orderid%>" readonly>
+    
+       <label for="tableno"><b>Number of Seats</b></label>
+       <input type="number" placeholder="Number of Seats Required" id="tableno" name="tableno" min="1" value="<%=data.tableno%>" required>
+    
+       <label for="date"><b>Date</b></label>
+       <input type="date" id="date" name="date" value="<%=data.date%>" required>
+
+       <label for="time"><b>Time</b></label>
+       <input type="time" id="time" name="time" value="<%=data.time%>" required>
+    
+    <label for="meal"><b>Meal Type</b></label>
+    <input type="radio" name="meal" value="Breakfast" required> Breakfast
+    <input type="radio" name="meal" value="Lunch"> Lunch
+    <input type="radio" name="meal" value="Dinner"> Dinner  <br><br>
+     
+    <label for="purpose"><b>Purpose</b></label>
+    <select id="purpose" name="purpose"  required>
+    <option value="">--Select--</option>
+     <option value="Meeting">Meeting</option>
+     <option value="Birthday">Birthday</option>
+     <option value="Casual">Casual</option>
+    </select>
+        
+       <hr>
+       
+       <button type="submit" class="registerbtn">Book your Table</button>
+     </div>
+    
+    </form>
+    
+    </body>
+</html>
